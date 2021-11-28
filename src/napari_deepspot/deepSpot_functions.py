@@ -40,7 +40,8 @@ def enhance(obj, dataset, model_path):
     res = res.reshape(256, 256, 1)
     print(res.shape)
     clean_layers(obj)
-    obj.viewer.add_image(res, name="original")
+    # obj.viewer.add_image(res, name="original")
+    obj.viewer.view_image(res)
     return res
 
 
