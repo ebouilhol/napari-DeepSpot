@@ -16,7 +16,7 @@ from napari_plugin_engine import napari_hook_implementation
 from qtpy import QtCore
 from qtpy.QtWidgets import QWidget, QPushButton, QCheckBox, QLabel, QVBoxLayout
 import napari_deepspot.deepSpot_functions as df
-
+import os
 class EnhanceSpot(QWidget):
     def __init__(self, napari_viewer):
 
@@ -32,7 +32,9 @@ class EnhanceSpot(QWidget):
     def _on_click(self):
         image = df.prepare_image(self)
         if image is not None:
-            image = df.enhance(image, "./napari-DeepSpot/src/models/MHybrid")
+            path = os.path.dirname(os.path.realpath(__file__)) + "/src/models/MHybrid/"
+            print(path)
+            image = df.enhance(image, path)
             self.viewer.add_image(image, name="spots")
 
 
