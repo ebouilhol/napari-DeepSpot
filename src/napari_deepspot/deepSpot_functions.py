@@ -38,7 +38,7 @@ def enhance(dataset, model_path):
     res = model.predict(dataset)
     print(res.shape)
 
-    return res
+    return res.reshape(256,256,1)
 
 
 def custom_loss(y_true, y_pred):
