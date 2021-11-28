@@ -32,7 +32,7 @@ class EnhanceSpot(QWidget):
     def _on_click(self):
         image = df.prepare_image(self)
         if image is not None:
-            path = os.path.dirname(os.path.realpath(__file__)) + "/src/models/MHybrid/"
+            path = "/home/ebouilhol/napari-DeepSpot/src/models/MHybrid/"
             print(path)
             image = df.enhance(image, path)
             self.viewer.add_image(image, name="spots")
