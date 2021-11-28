@@ -15,7 +15,7 @@ import skimage.transform as transform
 from napari_plugin_engine import napari_hook_implementation
 from qtpy import QtCore
 from qtpy.QtWidgets import QWidget, QPushButton, QCheckBox, QLabel, QVBoxLayout
-import src.napari_deepspot.deepSpot_functions as df
+import napari_deepspot.deepSpot_functions as df
 
 class EnhanceSpot(QWidget):
     def __init__(self, napari_viewer):
