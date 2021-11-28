@@ -30,7 +30,7 @@ class EnhanceSpot(QWidget):
 
 
     def _on_click(self):
-        image = df.load_img(self)
+        image = df.prepare_image(self)
         if image is not None:
             image = df.enhance(image, "./models/MHybrid/")
             self.viewer.add_image(image, name="spots")

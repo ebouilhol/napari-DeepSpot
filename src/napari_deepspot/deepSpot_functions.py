@@ -65,13 +65,6 @@ def get_images(path_list):
     return np.array(dataset)
 
 
-def load_img(obj):
-    import skimage.io as io
-    img = io.imread(obj.img_path)
-    img = (np.array(img) / np.amax(img)).reshape(256, 256, 1)
-    obj.viewer.add_image(img, name="image")
-    return img
-
 def clean_layers(obj, vol_id=5):
     if len(obj.viewer.layers) != 0:
         while obj.viewer.layers:
@@ -81,3 +74,13 @@ def clean_layers(obj, vol_id=5):
         except:
             print("no volume displayed")
 
+def prepare_image(obj):
+    image = None
+    if len(obj.viewer.layers) == 1:
+        image = obj.viewer.layers[0].data / 255
+        image = (np.array(image) / np.amax(image)).reshape(256, 256, 1)
+        clean_layers(obj)
+        obj.viewer.add_image(image, name="mouse")
+    else:
+        print("You do not have only one image opened.")
+    return image
