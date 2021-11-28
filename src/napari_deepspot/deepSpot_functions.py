@@ -19,7 +19,7 @@ import skimage.exposure as exposure
 
 
 
-def enhance(dataset, model_path):
+def enhance(obj, dataset, model_path):
     """
     Run inference.
     :param dataset: Imgs to segment
@@ -37,8 +37,11 @@ def enhance(dataset, model_path):
     print(dataset.shape)
     res = model.predict(dataset)
     print(res.shape)
-
-    return res.reshape(256,256,1)
+    res = res.reshape(256, 256, 1)
+    print(res.shape)
+    clean_layers(obj)
+    obj.viewer.add_image(res, name="original")
+    return res
 
 
 def custom_loss(y_true, y_pred):
