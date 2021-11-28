@@ -19,7 +19,7 @@ import skimage.exposure as exposure
 
 
 
-def predict(dataset, model_path):
+def enhance(dataset, model_path):
     """
     Run inference.
     :param dataset: Imgs to segment
@@ -80,16 +80,4 @@ def clean_layers(obj, vol_id=5):
             obj.layout().itemAt(vol_id).widget().setParent(None)
         except:
             print("no volume displayed")
-
-def prepare_image(obj):
-    image = None
-    if len(obj.viewer.layers) == 1:
-        image = obj.viewer.layers[0].data / 255
-        image = transform.resize(image, (len(image), 128, 128),
-                                 anti_aliasing=True)
-        clean_layers(obj)
-        obj.viewer.add_image(image, name="mouse")
-    else:
-        print("You do not have only one image opened.")
-    return image
 
