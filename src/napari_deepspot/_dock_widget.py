@@ -9,33 +9,35 @@ Replace code below according to your needs.
 from napari_plugin_engine import napari_hook_implementation
 from qtpy.QtWidgets import QWidget, QHBoxLayout, QPushButton
 from magicgui import magic_factory
+import numpy as np
+import scipy.ndimage as ndimage
+import skimage.transform as transform
+from napari_plugin_engine import napari_hook_implementation
+from qtpy import QtCore
+from qtpy.QtWidgets import QWidget, QPushButton, QCheckBox, QLabel, QVBoxLayout
 
 
-class ExampleQWidget(QWidget):
-    # your QWidget.__init__ can optionally request the napari viewer instance
-    # in one of two ways:
-    # 1. use a parameter called `napari_viewer`, as done here
-    # 2. use a type annotation of 'napari.viewer.Viewer' for any parameter
+class EnhanceSpot(QWidget):
     def __init__(self, napari_viewer):
+        import deepmeta.deepmeta_functions as df
         super().__init__()
+        self.cfg = df.load_config()
         self.viewer = napari_viewer
+        self.setLayout(QVBoxLayout())
 
-        btn = QPushButton("Click me!")
+        btn = QPushButton("Enhance")
         btn.clicked.connect(self._on_click)
-
-        self.setLayout(QHBoxLayout())
         self.layout().addWidget(btn)
 
+
     def _on_click(self):
-        print("napari has", len(self.viewer.layers), "layers")
-
-
-@magic_factory
-def example_magic_widget(img_layer: "napari.layers.Image"):
-    print(f"you have selected {img_layer}")
+        import deepSpot_functions as df
+        image = df.load_img(self)
+        if image is not None:
+            self.viewer.add_image(image, name="spots")
 
 
 @napari_hook_implementation
 def napari_experimental_provide_dock_widget():
     # you can return either a single widget, or a sequence of widgets
-    return [ExampleQWidget, example_magic_widget]
+    return [EnhanceSpot]
