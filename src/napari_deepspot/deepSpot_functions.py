@@ -35,7 +35,7 @@ def enhance(dataset, model_path):
     print(dataset.shape)
     res = model.predict(dataset)
     print(res.shape)
-    res.reshape(len(dataset), 256, 256, 1)
+    res.reshape(256, 256, 1)
 
     return res
 
