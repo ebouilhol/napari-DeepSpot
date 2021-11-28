@@ -35,7 +35,8 @@ class EnhanceSpot(QWidget):
             path = "/home/ebouilhol/napari-DeepSpot/src/models/MHybrid/"
             print(path)
             image = df.enhance(image, path)
-            self.viewer.add_image(image, name="spots")
+            df.clean_layers(self)
+            self.viewer.add_image(image, name="enhanced")
 
 
 

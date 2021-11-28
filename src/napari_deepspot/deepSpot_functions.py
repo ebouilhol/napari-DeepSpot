@@ -85,7 +85,7 @@ def prepare_image(obj):
         image = obj.viewer.layers[0].data / 255
         image = (np.array(image) / np.amax(image)).reshape(256, 256, 1)
         clean_layers(obj)
-        obj.viewer.add_image(image, name="mouse")
+        obj.viewer.add_image(image, name="original")
     else:
         print("You do not have only one image opened.")
     return image
