@@ -15,13 +15,12 @@ import skimage.transform as transform
 from napari_plugin_engine import napari_hook_implementation
 from qtpy import QtCore
 from qtpy.QtWidgets import QWidget, QPushButton, QCheckBox, QLabel, QVBoxLayout
-
+import deepSpot_functions as df
 
 class EnhanceSpot(QWidget):
     def __init__(self, napari_viewer):
-        import deepSpot_functions as df
+
         super().__init__()
-        self.cfg = df.load_config()
         self.viewer = napari_viewer
         self.setLayout(QVBoxLayout())
 
@@ -31,7 +30,6 @@ class EnhanceSpot(QWidget):
 
 
     def _on_click(self):
-        import deepSpot_functions as df
         image = df.load_img(self)
         if image is not None:
             image = df.enhance(image, "./models/MHybrid/")
