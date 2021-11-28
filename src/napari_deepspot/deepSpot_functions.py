@@ -36,9 +36,9 @@ def enhance(obj, dataset, model_path):
     dataset = np.expand_dims(dataset, axis=0)
     print(dataset.shape)
     res = model.predict(dataset)
-    # print(res.shape)
-    # res = res.reshape(256, 256, 1)
-    # print(res.shape)
+    print(res.shape)
+    res = res.reshape(256, 256)
+    print(res.shape)
     clean_layers(obj)
     obj.viewer.add_image(res, name="original")
     return res
