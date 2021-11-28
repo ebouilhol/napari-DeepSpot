@@ -31,8 +31,9 @@ def enhance(dataset, model_path):
     """
 
     model = tf.keras.models.load_model(model_path, custom_objects={'custom_loss': custom_loss})
+    print("-"*100)
     print(dataset.shape)
-    res = model.predict(dataset, batch_size=1)
+    res = model.predict(dataset)
     print(res.shape)
     res.reshape(len(dataset), 256, 256, 1)
 
