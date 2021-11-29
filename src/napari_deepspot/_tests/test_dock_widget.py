@@ -4,7 +4,7 @@ import pytest
 # this is your plugin name declared in your napari.plugins entry point
 MY_PLUGIN_NAME = "napari-DeepSpot"
 # the name of your widget(s)
-MY_WIDGET_NAMES = ["EnhanceSpot"]
+MY_WIDGET_NAMES = ["Enhance Spot"]
 
 
 @pytest.mark.parametrize("widget_name", MY_WIDGET_NAMES)
