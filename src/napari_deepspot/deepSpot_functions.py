@@ -9,39 +9,39 @@ from pathlib import Path
 from appdirs import user_config_dir
 from configparser import ConfigParser
 from scipy import ndimage
-import tensorflow as tf
-import tensorflow.keras as keras
-import tensorflow.keras.backend as K
+# import tensorflow as tf
+# import tensorflow.keras as keras
+# import tensorflow.keras.backend as K
 import cv2
 import os
-import skimage.measure as measure
-import skimage.exposure as exposure
+# import skimage.measure as measure
+# import skimage.exposure as exposure
 
 
+#
+# def enhance(obj, dataset, model_path):
+#     """
+#     Run inference.
+#     :param dataset: Imgs to segment
+#     :type dataset: np.array
+#     :param model_path: Path of model
+#     :type model_path: str
+#     :return: List of output binary masks
+#     :rtype: np.array
+#     """
 
-def enhance(obj, dataset, model_path):
-    """
-    Run inference.
-    :param dataset: Imgs to segment
-    :type dataset: np.array
-    :param model_path: Path of model
-    :type model_path: str
-    :return: List of output binary masks
-    :rtype: np.array
-    """
-
-    model = tf.keras.models.load_model(model_path, custom_objects={'custom_loss': custom_loss})
+    # model = tf.keras.models.load_model(model_path, custom_objects={'custom_loss': custom_loss})
     # print("-"*100)
     # print(dataset.shape)
-    dataset = np.expand_dims(dataset, axis=0)
-    # print(dataset.shape)
-    res = model.predict(dataset)
-    # print(res.shape)
-    res = res.reshape(256, 256)
-    # print(res.shape)
-    clean_layers(obj)
-    obj.viewer.add_image(res, name="original")
-    return res
+    # dataset = np.expand_dims(dataset, axis=0)
+    # # print(dataset.shape)
+    # res = model.predict(dataset)
+    # # print(res.shape)
+    # res = res.reshape(256, 256)
+    # # print(res.shape)
+    # clean_layers(obj)
+    # obj.viewer.add_image(res, name="original")
+    # return res
 
 
 def custom_loss(y_true, y_pred):
