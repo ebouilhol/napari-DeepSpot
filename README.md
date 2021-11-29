@@ -58,12 +58,9 @@ You can see the original images and the enhanced version in the left panel in th
 
 To save the images : File > Save all layers or File > Save selected layers.
 
-## Known Issues
+Example :
+![Usage](./image/napari_video.gif
 
-If you have troubles with the Python packages `typing extensions`, use the command :  
-`pip install typing-extensions --upgrade`  
-
-When using "Enhance" on multiple images, Napari may freeze. Just wait until it comes to live again, the images will still be enhanced.
 
 
 ## Citation
@@ -91,7 +88,15 @@ the coverage at least stays the same before you submit a pull request.
 Distributed under the terms of the [MIT] license,
 "napari-DeepSpot" is free and open source software
 
-## Issues
+## Known Issues
+
+If you have troubles with the Python packages `typing extensions`, use the command :  
+`pip install typing-extensions --upgrade`  
+
+When using "Enhance" on multiple images, Napari may freeze. Just wait until it comes to life again, the images will still be enhanced. This is due to Napari memory usage and will be fix one day.
+
+
+## Other Issues
 
 If you encounter any problems, please [file an issue] along with a detailed description.
 
