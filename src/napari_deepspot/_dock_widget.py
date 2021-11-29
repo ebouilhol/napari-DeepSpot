@@ -32,6 +32,8 @@ class EnhanceSpot(QWidget):
     def _on_click(self):
         image = df.prepare_image(self)
         if image is not None:
+            print(os.system("pwd"))
+            print(os.getcwd())
             path = "/home/ebouilhol/napari-DeepSpot/src/models/MHybrid/"
             print(path)
             image = df.enhance(self, image, path)
