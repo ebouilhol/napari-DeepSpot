@@ -58,7 +58,7 @@ You can see the original images and the enhanced version in the left panel in th
 
 To save the images : File > Save all layers or File > Save selected layers.
 
-Example :
+
 ![Usage](./image/napari_video.gif)
 
 
