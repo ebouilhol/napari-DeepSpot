@@ -32,24 +32,6 @@ class EnhanceSpot(QWidget):
             image = df.enhance(self, image)
 
 
-# class ChangeModel(QWidget):
-#     def __init__(self, napari_viewer):
-#
-#         super().__init__()
-#         self.viewer = napari_viewer
-#         self.setLayout(QVBoxLayout())
-#         self.model_path = ""
-#
-#         btn = QPushButton("Load Model")
-#         btn.clicked.connect(self._on_click)
-#         self.layout().addWidget(btn)
-#
-#
-#     def _on_click(self):
-#         import napari_deepspot.deepSpot_functions as df
-#         image = df.prepare_image(self)
-#         if image is not None:
-#             image = df.enhance(self, image)
 
 @napari_hook_implementation
 def napari_experimental_provide_dock_widget():
