@@ -39,22 +39,16 @@ def custom_loss(y_true, y_pred):
     return loss_value
 
 
-# def clean_layers(obj, vol_id=5):
-#     if len(obj.viewer.layers) != 0:
-#         while obj.viewer.layers:
-#             obj.viewer.layers.pop()
-#         try:
-#             obj.layout().itemAt(vol_id).widget().setParent(None)
-#         except:
-#             print("no volume displayed")
 
 def prepare_image(obj):
     img_list = []
-
     layers = obj.viewer.layers.copy()
-    for img in layers:
-        print(img)
-        image = img.data / 255
-        image = (np.array(image) / np.amax(image)).reshape(256, 256, 1)
-        img_list.append(image)
-    return np.array(img_list)
+    if len(layers)>0:
+        for img in layers:
+            print(img)
+            image = img.data / 255
+            image = (np.array(image) / np.amax(image)).reshape(256, 256, 1)
+            img_list.append(image)
+        return np.array(img_list)
+    else:
+        print("No image open")

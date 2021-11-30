@@ -27,7 +27,7 @@ You can install `napari-DeepSpot` via [pip]:
 
     pip install napari-DeepSpot
 
-## Python environment
+## Build from source
 
 This plugin is using Tensorflow, make sure your Python environment has Tensorflow, on create a new environment using the following commands:
 * Conda:  

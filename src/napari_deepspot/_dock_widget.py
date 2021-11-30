@@ -9,7 +9,7 @@ Replace code below according to your needs.
 
 from napari_plugin_engine import napari_hook_implementation
 from qtpy.QtWidgets import QWidget, QPushButton, QVBoxLayout
-
+import os
 
 class EnhanceSpot(QWidget):
     def __init__(self, napari_viewer):
@@ -17,7 +17,8 @@ class EnhanceSpot(QWidget):
         super().__init__()
         self.viewer = napari_viewer
         self.setLayout(QVBoxLayout())
-        self.model_path = "./src/models/MHybrid/"
+        fn = os.path.join(os.path.dirname(__file__), "models/MHybrid/")
+        self.model_path = fn
 
         btn = QPushButton("Enhance")
         btn.clicked.connect(self._on_click)
@@ -30,6 +31,25 @@ class EnhanceSpot(QWidget):
         if image is not None:
             image = df.enhance(self, image)
 
+
+# class ChangeModel(QWidget):
+#     def __init__(self, napari_viewer):
+#
+#         super().__init__()
+#         self.viewer = napari_viewer
+#         self.setLayout(QVBoxLayout())
+#         self.model_path = ""
+#
+#         btn = QPushButton("Load Model")
+#         btn.clicked.connect(self._on_click)
+#         self.layout().addWidget(btn)
+#
+#
+#     def _on_click(self):
+#         import napari_deepspot.deepSpot_functions as df
+#         image = df.prepare_image(self)
+#         if image is not None:
+#             image = df.enhance(self, image)
 
 @napari_hook_implementation
 def napari_experimental_provide_dock_widget():
