@@ -39,7 +39,7 @@ This plugin is using Tensorflow, make sure your Python environment has Tensorflo
 ## Usage
 
 Open one or multiple images using Napari GUI : 
-File > Open > Select your image
+File > Open > Select your image  
 (Please note that for now only 256px x 256px images are supported)
 
 The images are then displayed on Napari
