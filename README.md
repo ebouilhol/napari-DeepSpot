@@ -40,6 +40,7 @@ This plugin is using Tensorflow, make sure your Python environment has Tensorflo
 
 Open one or multiple images using Napari GUI : 
 File > Open > Select your image
+(Please note that for now only 256px x 256px images are supported)
 
 The images are then displayed on Napari
 
@@ -94,6 +95,14 @@ If you have troubles with the Python packages `typing extensions`, use the comma
 `pip install typing-extensions --upgrade`  
 
 When using "Enhance" on multiple images, Napari may freeze. Just wait until it comes to life again, the images will still be enhanced. This is due to Napari memory usage and will be fix one day.
+
+## Coming soon 
+
+- [ ] Use different size of images
+- [ ] Renaming the enhanced layers
+- [ ] Possibility to load another model
+- [ ] Working with large volume of images
+- [ ] New model from DeepSpot for better enhancement
 
 
 ## Other Issues
